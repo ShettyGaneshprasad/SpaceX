@@ -1,9 +1,10 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:spacex/videoDemo.dart';
 
 import 'package:spacex/web_view_container.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:video_player/video_player.dart';
 
 class AndroidMobile1 extends StatefulWidget {
@@ -20,17 +21,19 @@ Future<void> _initializeVideoPlayerFuture;
 
 @override
 void initState() {
-  // _controller = VideoPlayerController.network(
-  //   "https://www.spacex.com/media/iss_docking_sim.mp4");
-  _controller = VideoPlayerController.asset("assets/iss_docking_sim.mp4");
+  _controller = VideoPlayerController.network(
+      "https://www.spacex.com/media/iss_docking_sim.mp4");
+  //_controller = VideoPlayerController.asset("assets/iss_docking_sim.mp4");
   _initializeVideoPlayerFuture = _controller.initialize();
   _controller.setLooping(true);
   _controller.setVolume(1.0);
+  initState();
 }
 
 @override
 void dispose() {
   _controller.dispose();
+  dispose();
 }
 
 class _AndroidMobile1State extends State<AndroidMobile1> {
@@ -43,7 +46,7 @@ class _AndroidMobile1State extends State<AndroidMobile1> {
       body: Column(
         children: <Widget>[
           SafeArea(
-            minimum: EdgeInsets.all(30),
+            minimum: EdgeInsets.all(0),
             child: SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Transform.translate(
@@ -56,7 +59,6 @@ class _AndroidMobile1State extends State<AndroidMobile1> {
             ),
           ),
           SafeArea(
-            minimum: EdgeInsets.only(bottom: 15),
             child: Text(
               'CREW DRAGON DOCKING SIMULATOR',
               style: TextStyle(
@@ -68,17 +70,21 @@ class _AndroidMobile1State extends State<AndroidMobile1> {
               textAlign: TextAlign.center,
             ),
           ),
-          SafeArea(
-            minimum: EdgeInsets.only(bottom: 25),
-            child: Text(
-              'Crew Dragon is designed to autonomously dock and undock with the International Space Station. However, the crew can take manual control of the spacecraft if necessary.',
-              style: TextStyle(
-                fontFamily: 'Segoe UI',
-                fontSize: 16,
-                color: const Color(0xff707070),
-              ),
-              textAlign: TextAlign.center,
+          SizedBox(
+            height: 15,
+          ),
+
+          Text(
+            'Crew Dragon is designed to autonomously dock and undock with the International Space Station. However, the crew can take manual control of the spacecraft if necessary.',
+            style: TextStyle(
+              fontFamily: 'Segoe UI',
+              fontSize: 14,
+              color: const Color(0xff707070),
             ),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(
+            height: 15,
           ),
           Transform.translate(
             offset: Offset(0, 0),
@@ -91,12 +97,136 @@ class _AndroidMobile1State extends State<AndroidMobile1> {
               ],
             ),
           ),
-          /*   FutureBuilder(
-            future: _initializeVideoPlayerFuture,
-            builder: (context, snapshot) {
-              return VideoPlayer(_controller);
-            },
-          ),*/
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height - 430,
+            child: VideoDemo(),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          //link
+          Container(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  "Flutter App by \"Shetty Ganeshprasad\"",
+                  style: TextStyle(color: Colors.white),
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Card(
+                      color: Colors.black,
+                      elevation: 10,
+                      margin: EdgeInsets.all(12.0),
+                      child: InkWell(
+                        onTap: () {
+                          launch('https://shettyganeshprasad.netlify.app/');
+                        },
+                        splashColor: Colors.lightBlueAccent,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Icon(
+                              Icons.public,
+                              color: Colors.red,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Card(
+                      color: Colors.black,
+                      elevation: 10,
+                      margin: EdgeInsets.all(12.0),
+                      child: InkWell(
+                        onTap: () {
+                          launch('https://github.com/ganeshShetty98');
+                        },
+                        splashColor: Colors.lightBlueAccent,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            FaIcon(
+                              FontAwesomeIcons.github,
+                              color: Colors.white,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Card(
+                      color: Colors.black,
+                      elevation: 10,
+                      margin: EdgeInsets.all(12.0),
+                      child: InkWell(
+                        onTap: () {
+                          launch(
+                              'https://www.linkedin.com/in/shettyganeshprasad/');
+                        },
+                        splashColor: Colors.lightBlueAccent,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            FaIcon(
+                              FontAwesomeIcons.linkedin,
+                              color: Colors.blue,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Card(
+                      color: Colors.black,
+                      elevation: 10,
+                      margin: EdgeInsets.all(12.0),
+                      child: InkWell(
+                        onTap: () {
+                          launch('https://twitter.com/_G4neshshetty_');
+                        },
+                        splashColor: Colors.lightBlueAccent,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            FaIcon(
+                              FontAwesomeIcons.twitter,
+                              color: Colors.blueAccent,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Card(
+                      color: Colors.black,
+                      elevation: 10,
+                      margin: EdgeInsets.all(12.0),
+                      child: InkWell(
+                        onTap: () {
+                          launch('https://wa.me/+917900129925');
+                        },
+                        splashColor: Colors.lightBlueAccent,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            FaIcon(
+                              FontAwesomeIcons.whatsappSquare,
+                              color: Colors.green,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
@@ -108,15 +238,14 @@ class _AndroidMobile1State extends State<AndroidMobile1> {
         onTap: () => _handleURLButtonPress(context, url),
         child: SizedBox(
           width: 156.0,
-          height: 75.0,
+          height: 0.0,
           child: SafeArea(
-            minimum: EdgeInsets.all(8),
             child: Text(
-              'Try Docking Manually\nlike Astronaut',
+              'Try Docking Manually like Astronaut',
               style: TextStyle(
                 fontFamily: 'Segoe UI',
-                fontSize: 18,
-                color: const Color(0xffffffff),
+                fontSize: 20,
+                color: Colors.black,
                 fontWeight: FontWeight.w700,
               ),
               textAlign: TextAlign.center,

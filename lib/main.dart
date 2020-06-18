@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spacex/AndroidMobile1.dart';
+import 'package:spacex/SpaceX.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
           textTheme: TextTheme(
             button: TextStyle(color: Colors.white, fontSize: 18.0),
           )),
-      home: AndroidMobile1(),
+      home: SpaceX(),
     );
   }
 }

@@ -7,25 +7,31 @@ class GShetty extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[50],
+      backgroundColor: Colors.black,
       body: ListView(
         children: <Widget>[
           Image.asset('assets/ganeshshetty.jpeg'),
+          SizedBox(
+            height: 10,
+          ),
           Text(
             "Shetty Ganeshprasad",
             style: new TextStyle(
                 fontSize: 30.0,
                 fontStyle: FontStyle.normal,
                 fontWeight: FontWeight.w600,
-                color: Colors.black),
+                color: Colors.white),
             textAlign: TextAlign.center,
+          ),
+          SizedBox(
+            height: 10,
           ),
           Text(
             "Computer Science Department, SDMCET",
             style: new TextStyle(
                 fontSize: 20.0,
                 fontStyle: FontStyle.normal,
-                color: Colors.black),
+                color: Colors.white),
             textAlign: TextAlign.center,
           ),
           Text(
@@ -33,7 +39,7 @@ class GShetty extends StatelessWidget {
             style: new TextStyle(
                 fontSize: 20.0,
                 fontStyle: FontStyle.normal,
-                color: Colors.black),
+                color: Colors.grey),
             textAlign: TextAlign.center,
           ),
           Column(
@@ -44,6 +50,7 @@ class GShetty extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Card(
+                    color: Colors.black,
                     elevation: 10,
                     margin: EdgeInsets.all(12.0),
                     child: InkWell(
@@ -63,6 +70,7 @@ class GShetty extends StatelessWidget {
                     ),
                   ),
                   Card(
+                    color: Colors.black,
                     elevation: 10,
                     margin: EdgeInsets.all(12.0),
                     child: InkWell(
@@ -75,13 +83,14 @@ class GShetty extends StatelessWidget {
                         children: <Widget>[
                           FaIcon(
                             FontAwesomeIcons.dev,
-                            color: Colors.black,
+                            color: Colors.white,
                           ),
                         ],
                       ),
                     ),
                   ),
                   Card(
+                    color: Colors.black,
                     elevation: 10,
                     margin: EdgeInsets.all(12.0),
                     child: InkWell(
@@ -94,13 +103,14 @@ class GShetty extends StatelessWidget {
                         children: <Widget>[
                           FaIcon(
                             FontAwesomeIcons.instagram,
-                            color: Colors.purple,
+                            color: Colors.pink,
                           ),
                         ],
                       ),
                     ),
                   ),
                   Card(
+                    color: Colors.black,
                     elevation: 10,
                     margin: EdgeInsets.all(12.0),
                     child: InkWell(
@@ -121,6 +131,7 @@ class GShetty extends StatelessWidget {
                     ),
                   ),
                   Card(
+                    color: Colors.black,
                     elevation: 10,
                     margin: EdgeInsets.all(12.0),
                     child: InkWell(
@@ -133,13 +144,14 @@ class GShetty extends StatelessWidget {
                         children: <Widget>[
                           FaIcon(
                             FontAwesomeIcons.github,
-                            color: Colors.black,
+                            color: Colors.white,
                           ),
                         ],
                       ),
                     ),
                   ),
                   Card(
+                    color: Colors.black,
                     elevation: 10,
                     margin: EdgeInsets.all(12.0),
                     child: InkWell(
@@ -160,6 +172,7 @@ class GShetty extends StatelessWidget {
                     ),
                   ),
                   Card(
+                    color: Colors.black,
                     elevation: 10,
                     margin: EdgeInsets.all(12.0),
                     child: InkWell(
@@ -179,6 +192,7 @@ class GShetty extends StatelessWidget {
                     ),
                   ),
                   Card(
+                    color: Colors.black,
                     elevation: 10,
                     margin: EdgeInsets.all(12.0),
                     child: InkWell(

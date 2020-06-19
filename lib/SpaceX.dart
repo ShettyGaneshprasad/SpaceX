@@ -1,11 +1,11 @@
 import 'dart:async';
-
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:share/share.dart';
+import 'package:spacex/drawer.dart';
 import 'package:spacex/videoDemo.dart';
-
 import 'package:spacex/web_view_container.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:video_player/video_player.dart';
@@ -50,16 +50,18 @@ checkInternet() async {
   print("Last results: ${DataConnectionChecker().lastTryResults}");
 
   // actively listen for status updates
-  var listener = DataConnectionChecker().onStatusChange.listen((status) {
-    switch (status) {
-      case DataConnectionStatus.connected:
-        print('Data connection is available.');
-        break;
-      case DataConnectionStatus.disconnected:
-        print('You are disconnected from the internet.');
-        break;
-    }
-  });
+  var listener = DataConnectionChecker().onStatusChange.listen(
+    (status) {
+      switch (status) {
+        case DataConnectionStatus.connected:
+          print('Data connection is available.');
+          break;
+        case DataConnectionStatus.disconnected:
+          print('You are disconnected from the internet.');
+          break;
+      }
+    },
+  );
 
   return await DataConnectionChecker().connectionStatus;
 }
@@ -70,13 +72,13 @@ class _SpaceXState extends State<SpaceX> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff000000),
-      body: Column(
-        children: <Widget>[
+      appBar: AppBar(
+        elevation: 10,
+        actions: <Widget>[
           SafeArea(
-            minimum: EdgeInsets.all(0),
+            minimum: EdgeInsets.all(10),
             child: SizedBox(
-              width: MediaQuery.of(context).size.width,
+              width: 200,
               child: Transform.translate(
                 offset: Offset(0.0, 0.0),
                 child: SvgPicture.string(
@@ -86,13 +88,46 @@ class _SpaceXState extends State<SpaceX> {
               ),
             ),
           ),
+        ],
+        backgroundColor: Colors.black,
+      ),
+      drawer: SpacexDrawer(),
+      floatingActionButton: FloatingActionButton(
+        heroTag: "btn1",
+        mini: true,
+        backgroundColor: Colors.white,
+        onPressed: () {
+          Share.share(
+              "Download this app: https://drive.google.com/open?id=1HEV_Y3rv9amnEES67vkuSvhR-R8t2kRE");
+        },
+        child: Icon(
+          Icons.share,
+          color: Colors.black,
+        ),
+      ),
+      backgroundColor: const Color(0xff000000),
+      body: Column(
+        children: <Widget>[
           SafeArea(
             child: Text(
               'CREW DRAGON DOCKING SIMULATOR',
               style: TextStyle(
                 fontFamily: 'Segoe UI',
                 fontSize: 22,
-                color: const Color(0xff707070),
+                color: Colors.white,
+                /* shadows: <Shadow>[
+                  Shadow(
+                    offset: Offset(10.0, 10.0),
+                    blurRadius: 3.0,
+                    color: Color.fromARGB(255, 0, 0, 0),
+                  ),
+                  Shadow(
+                    offset: Offset(10.0, 10.0),
+                    blurRadius: 8.0,
+                    color: Colors.white,
+                  ),
+                ],*/
+                // color: const Color(0xff707070),
                 fontWeight: FontWeight.w700,
               ),
               textAlign: TextAlign.center,
@@ -105,25 +140,28 @@ class _SpaceXState extends State<SpaceX> {
           Text(
             'Crew Dragon is designed to autonomously dock and undock with the International Space Station. However, the crew can take manual control of the spacecraft if necessary.',
             style: TextStyle(
-              fontFamily: 'Segoe UI',
-              fontSize: 14,
+              fontFamily: 'Segoe UI', fontSize: 15, //color: Colors.white,
               color: const Color(0xff707070),
             ),
             textAlign: TextAlign.center,
           ),
           SizedBox(
-            height: 15,
+            height: 20,
           ),
           Transform.translate(
             offset: Offset(0, 0),
             child: Column(
               children: <Widget>[
                 Column(
-                  children:
-                      _links.map((link) => _urlButton(context, link)).toList(),
+                  children: _links.map((link) {
+                    return _urlButton(context, link);
+                  }).toList(),
                 )
               ],
             ),
+          ),
+          SizedBox(
+            height: 10,
           ),
           Container(
             width: MediaQuery.of(context).size.width,
@@ -273,7 +311,7 @@ class _SpaceXState extends State<SpaceX> {
                 builder: (context) => AlertDialog(
                       title: Text("No Internet"),
                       content: Text(
-                          "Check Your Internet Connection.\nIf problem persis"),
+                          "Check Your Internet Connection.\nIf problem persist contact developer."),
                     ));
           }
         },

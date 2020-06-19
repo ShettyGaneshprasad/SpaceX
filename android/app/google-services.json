@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "219785322905",
+    "firebase_url": "https://spacex-d8a56.firebaseio.com",
+    "project_id": "spacex-d8a56",
+    "storage_bucket": "spacex-d8a56.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219785322905:android:2d565a9d3171a4e7e4f308",
+        "android_client_info": {
+          "package_name": "com.example.spacex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "219785322905-uh3vvghije2ruosis541qucl3kftvj11.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsUsYPY9fk5o5IR2Fj-zmtxJsBmSadYyQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "219785322905-uh3vvghije2ruosis541qucl3kftvj11.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

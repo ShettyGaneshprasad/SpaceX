@@ -2,12 +2,10 @@ import 'dart:async';
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:share/share.dart';
 import 'package:spacex/drawer.dart';
 import 'package:spacex/videoDemo.dart';
 import 'package:spacex/web_view_container.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:video_player/video_player.dart';
 
 class SpaceX extends StatefulWidget {
@@ -73,8 +71,22 @@ class _SpaceXState extends State<SpaceX> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         elevation: 10,
-        actions: <Widget>[
+        title: SafeArea(
+          minimum: EdgeInsets.all(10),
+          child: SizedBox(
+            width: 200,
+            child: Transform.translate(
+              offset: Offset(0.0, 0.0),
+              child: SvgPicture.string(
+                _svg_dc9cor,
+                allowDrawingOutsideViewBox: true,
+              ),
+            ),
+          ),
+        ),
+        /* actions: <Widget>[
           SafeArea(
             minimum: EdgeInsets.all(10),
             child: SizedBox(
@@ -88,7 +100,7 @@ class _SpaceXState extends State<SpaceX> {
               ),
             ),
           ),
-        ],
+        ],*/
         backgroundColor: Colors.black,
       ),
       drawer: SpacexDrawer(),
@@ -98,7 +110,7 @@ class _SpaceXState extends State<SpaceX> {
         backgroundColor: Colors.white,
         onPressed: () {
           Share.share(
-              "Download this app: https://drive.google.com/open?id=1HEV_Y3rv9amnEES67vkuSvhR-R8t2kRE");
+              "Try this SpaceX fan app and try CREW DRAGON DOCKING SIMULATOR: https://drive.google.com/file/d/1EeB1dSHG42z-F-KYxAgzvHizW9-7jI8y/view?usp=sharing");
         },
         child: Icon(
           Icons.share,
@@ -115,19 +127,6 @@ class _SpaceXState extends State<SpaceX> {
                 fontFamily: 'Segoe UI',
                 fontSize: 22,
                 color: Colors.white,
-                /* shadows: <Shadow>[
-                  Shadow(
-                    offset: Offset(10.0, 10.0),
-                    blurRadius: 3.0,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                  ),
-                  Shadow(
-                    offset: Offset(10.0, 10.0),
-                    blurRadius: 8.0,
-                    color: Colors.white,
-                  ),
-                ],*/
-                // color: const Color(0xff707070),
                 fontWeight: FontWeight.w700,
               ),
               textAlign: TextAlign.center,
@@ -163,9 +162,8 @@ class _SpaceXState extends State<SpaceX> {
           SizedBox(
             height: 10,
           ),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height - 430,
+
+          Expanded(
             child: VideoDemo(),
           ),
           SizedBox(
@@ -178,117 +176,6 @@ class _SpaceXState extends State<SpaceX> {
               children: <Widget>[
                 SizedBox(
                   height: 5,
-                ),
-                Text(
-                  "Flutter App by \"Shetty Ganeshprasad\"",
-                  style: TextStyle(color: Colors.white),
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Card(
-                      color: Colors.black,
-                      elevation: 10,
-                      margin: EdgeInsets.all(12.0),
-                      child: InkWell(
-                        onTap: () {
-                          launch('https://shettyganeshprasad.netlify.app/');
-                        },
-                        splashColor: Colors.lightBlueAccent,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Icon(
-                              Icons.public,
-                              color: Colors.red,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Card(
-                      color: Colors.black,
-                      elevation: 10,
-                      margin: EdgeInsets.all(12.0),
-                      child: InkWell(
-                        onTap: () {
-                          launch('https://github.com/ganeshShetty98');
-                        },
-                        splashColor: Colors.lightBlueAccent,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            FaIcon(
-                              FontAwesomeIcons.github,
-                              color: Colors.white,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Card(
-                      color: Colors.black,
-                      elevation: 10,
-                      margin: EdgeInsets.all(12.0),
-                      child: InkWell(
-                        onTap: () {
-                          launch(
-                              'https://www.linkedin.com/in/shettyganeshprasad/');
-                        },
-                        splashColor: Colors.lightBlueAccent,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            FaIcon(
-                              FontAwesomeIcons.linkedin,
-                              color: Colors.blue,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Card(
-                      color: Colors.black,
-                      elevation: 10,
-                      margin: EdgeInsets.all(12.0),
-                      child: InkWell(
-                        onTap: () {
-                          launch('https://twitter.com/_G4neshshetty_');
-                        },
-                        splashColor: Colors.lightBlueAccent,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            FaIcon(
-                              FontAwesomeIcons.twitter,
-                              color: Colors.blueAccent,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Card(
-                      color: Colors.black,
-                      elevation: 10,
-                      margin: EdgeInsets.all(12.0),
-                      child: InkWell(
-                        onTap: () {
-                          launch('https://wa.me/+917900129925');
-                        },
-                        splashColor: Colors.lightBlueAccent,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            FaIcon(
-                              FontAwesomeIcons.whatsappSquare,
-                              color: Colors.green,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
                 ),
               ],
             ),

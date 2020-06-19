@@ -1,8 +1,5 @@
-import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'dart:io';
-import 'connection.dart';
 
 class WebViewContainer extends StatefulWidget {
   final url;
@@ -17,24 +14,18 @@ class _WebViewContainerState extends State<WebViewContainer> {
   _WebViewContainerState(this._url);
   @override
   Widget build(BuildContext context) {
-    if (true) {
-      return Scaffold(
-        body: Column(
-          children: [
-            Expanded(
-              child: WebView(
-                key: _key,
-                javascriptMode: JavascriptMode.unrestricted,
-                initialUrl: _url,
-              ),
-            )
-          ],
-        ),
-      );
-    } else {
-      return Center(
-        child: CircularProgressIndicator(),
-      );
-    }
+    return Scaffold(
+      body: Column(
+        children: [
+          Expanded(
+            child: WebView(
+              key: _key,
+              javascriptMode: JavascriptMode.unrestricted,
+              initialUrl: _url,
+            ),
+          )
+        ],
+      ),
+    );
   }
 }

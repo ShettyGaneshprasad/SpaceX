@@ -35,6 +35,7 @@ class VideoDemoState extends State<VideoDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
       backgroundColor: Colors.white,
       body: FutureBuilder(
         future: _initializeVideoPlayerFuture,

@@ -160,7 +160,7 @@ class _SpaceXState extends State<SpaceX> {
             ),
           ),
           SizedBox(
-            height: 10,
+            height: 50,
           ),
 
           Expanded(

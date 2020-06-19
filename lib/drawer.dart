@@ -21,7 +21,7 @@ class _SpacexDrawerState extends State<SpacexDrawer> {
     return new Drawer(
         elevation: 100,
         child: Container(
-          color: Colors.black,
+          color: Colors.grey,
           child: ListView(
             padding: EdgeInsets.only(bottom: 200, top: 30),
             children: <Widget>[
@@ -33,46 +33,6 @@ class _SpacexDrawerState extends State<SpacexDrawer> {
                   allowDrawingOutsideViewBox: true,
                 ),
               ),
-              Divider(
-                color: Colors.white,
-                thickness: 2,
-              ),
-              ListTile(
-                leading: FaIcon(
-                  FontAwesomeIcons.youtube,
-                  color: Colors.red,
-                ),
-                title: Text(
-                  "NASA SpaceX Crew Dragon Launch",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 15, color: Colors.white),
-                ),
-                onTap: () {
-                  launch("https://www.youtube.com/watch?v=won6Ap9JnVw");
-                },
-              ),
-              Divider(
-                color: Colors.white,
-                thickness: 2,
-              ),
-              ListTile(
-                leading: FaIcon(
-                  FontAwesomeIcons.youtube,
-                  color: Colors.red,
-                ),
-                title: Text(
-                  "Elon Musk's Engineering Masterpiece",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 15, color: Colors.white),
-                ),
-                onTap: () {
-                  launch("https://www.youtube.com/watch?v=sX1Y2JMK6g8&t");
-                },
-              ),
-              Divider(
-                color: Colors.white,
-                thickness: 2,
-              ),
               ListTile(
                 leading: FaIcon(
                   FontAwesomeIcons.youtube,
@@ -80,81 +40,26 @@ class _SpacexDrawerState extends State<SpacexDrawer> {
                 ),
                 title: Text(
                   "Real NASA SpaceX Crew Dragon docking @ ISS",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 15, color: Colors.white),
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 15, color: Colors.black),
                 ),
                 onTap: () {
                   launch("https://www.youtube.com/watch?v=qRK5YQ5Qfzs");
                 },
               ),
               Divider(
-                color: Colors.white,
+                color: Colors.black,
                 thickness: 2,
               ),
               ListTile(
                 leading: FaIcon(
-                  FontAwesomeIcons.youtube,
-                  color: Colors.red,
+                  FontAwesomeIcons.sun,
+                  color: Colors.black,
                 ),
                 title: Text(
-                  "Inside SpaceX's Crew Dragon Capsule",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 15, color: Colors.white),
-                ),
-                onTap: () {
-                  launch("https://www.youtube.com/watch?v=j2C9DYYVEBk");
-                },
-              ),
-              Divider(
-                color: Colors.white,
-                thickness: 2,
-              ),
-              ListTile(
-                leading: FaIcon(
-                  FontAwesomeIcons.youtube,
-                  color: Colors.red,
-                ),
-                title: Text(
-                  "SpaceX just launched humans to space for the first time",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 15, color: Colors.white),
-                ),
-                onTap: () {
-                  launch("https://www.youtube.com/watch?v=s4CISUyYoDc");
-                },
-              ),
-              Divider(
-                color: Colors.white,
-                thickness: 2,
-              ),
-              ListTile(
-                leading: FaIcon(
-                  FontAwesomeIcons.code,
-                  color: Colors.white,
-                ),
-                title: Text(
-                  "About Developer",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 15, color: Colors.white),
-                ),
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => GShetty()));
-                },
-              ),
-              Divider(
-                color: Colors.white,
-                thickness: 2,
-              ),
-              ListTile(
-                leading: FaIcon(
-                  FontAwesomeIcons.code,
-                  color: Colors.white,
-                ),
-                title: Text(
-                  "test",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 15, color: Colors.white),
+                  "Mission",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 15, color: Colors.black),
                 ),
                 onTap: () async {
                   DataConnectionStatus status = await checkInternet();
@@ -173,6 +78,427 @@ class _SpacexDrawerState extends State<SpacexDrawer> {
                                   "Check Your Internet Connection.\nIf problem persist contact developer."),
                             ));
                   }
+                },
+              ),
+              Divider(
+                color: Colors.black,
+                thickness: 2,
+              ),
+              ListTile(
+                leading: FaIcon(
+                  FontAwesomeIcons.spaceShuttle,
+                  color: Colors.black,
+                ),
+                title: Text(
+                  "Recent Launch",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                ),
+                onTap: () async {
+                  DataConnectionStatus status = await checkInternet();
+                  if (status == DataConnectionStatus.connected) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => WebViewContainer(
+                                "https://www.spacex.com/launches/")));
+                  } else {
+                    showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                              title: Text("No Internet"),
+                              content: Text(
+                                  "Check Your Internet Connection.\nIf problem persist contact developer."),
+                            ));
+                  }
+                },
+              ),
+              Divider(
+                color: Colors.black,
+                thickness: 2,
+              ),
+              ListTile(
+                leading: FaIcon(
+                  FontAwesomeIcons.rocket,
+                  color: Colors.black,
+                ),
+                title: Text(
+                  "Falcon 9",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                ),
+                onTap: () async {
+                  DataConnectionStatus status = await checkInternet();
+                  if (status == DataConnectionStatus.connected) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => WebViewContainer(
+                                "https://www.spacex.com/vehicles/falcon-9/")));
+                  } else {
+                    showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                              title: Text("No Internet"),
+                              content: Text(
+                                  "Check Your Internet Connection.\nIf problem persist contact developer."),
+                            ));
+                  }
+                },
+              ),
+              Divider(
+                color: Colors.black,
+                thickness: 2,
+              ),
+              ListTile(
+                leading: FaIcon(
+                  FontAwesomeIcons.rocket,
+                  color: Colors.black,
+                ),
+                title: Text(
+                  "Falcon Heavy",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                ),
+                onTap: () async {
+                  DataConnectionStatus status = await checkInternet();
+                  if (status == DataConnectionStatus.connected) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => WebViewContainer(
+                                "https://www.spacex.com/vehicles/falcon-heavy/")));
+                  } else {
+                    showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                              title: Text("No Internet"),
+                              content: Text(
+                                  "Check Your Internet Connection.\nIf problem persist contact developer."),
+                            ));
+                  }
+                },
+              ),
+              Divider(
+                color: Colors.black,
+                thickness: 2,
+              ),
+              ListTile(
+                leading: FaIcon(
+                  FontAwesomeIcons.dragon,
+                  color: Colors.black,
+                ),
+                title: Text(
+                  "Dragon",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                ),
+                onTap: () async {
+                  DataConnectionStatus status = await checkInternet();
+                  if (status == DataConnectionStatus.connected) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => WebViewContainer(
+                                "https://www.spacex.com/vehicles/dragon/")));
+                  } else {
+                    showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                              title: Text("No Internet"),
+                              content: Text(
+                                  "Check Your Internet Connection.\nIf problem persist contact developer."),
+                            ));
+                  }
+                },
+              ),
+              Divider(
+                color: Colors.black,
+                thickness: 2,
+              ),
+              ListTile(
+                leading: FaIcon(
+                  FontAwesomeIcons.star,
+                  color: Colors.black,
+                ),
+                title: Text(
+                  "Starship",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                ),
+                onTap: () async {
+                  DataConnectionStatus status = await checkInternet();
+                  if (status == DataConnectionStatus.connected) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => WebViewContainer(
+                                "https://www.spacex.com/vehicles/starship/")));
+                  } else {
+                    showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                              title: Text("No Internet"),
+                              content: Text(
+                                  "Check Your Internet Connection.\nIf problem persist contact developer."),
+                            ));
+                  }
+                },
+              ),
+              Divider(
+                color: Colors.black,
+                thickness: 2,
+              ),
+              ListTile(
+                leading: FaIcon(
+                  FontAwesomeIcons.userAstronaut,
+                  color: Colors.black,
+                ),
+                title: Text(
+                  "Human Spaceflight",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                ),
+                onTap: () async {
+                  DataConnectionStatus status = await checkInternet();
+                  if (status == DataConnectionStatus.connected) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => WebViewContainer(
+                                "https://www.spacex.com/vehicles/falcon-9/")));
+                  } else {
+                    showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                              title: Text("No Internet"),
+                              content: Text(
+                                  "Check Your Internet Connection.\nIf problem persist contact developer."),
+                            ));
+                  }
+                },
+              ),
+              Divider(
+                color: Colors.black,
+                thickness: 2,
+              ),
+              ListTile(
+                leading: FaIcon(
+                  FontAwesomeIcons.peopleArrows,
+                  color: Colors.black,
+                ),
+                title: Text(
+                  "Ride Share",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                ),
+                onTap: () async {
+                  DataConnectionStatus status = await checkInternet();
+                  if (status == DataConnectionStatus.connected) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => WebViewContainer(
+                                "https://www.spacex.com/rideshare/")));
+                  } else {
+                    showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                              title: Text("No Internet"),
+                              content: Text(
+                                  "Check Your Internet Connection.\nIf problem persist contact developer."),
+                            ));
+                  }
+                },
+              ),
+              Divider(
+                color: Colors.black,
+                thickness: 2,
+              ),
+              ListTile(
+                leading: FaIcon(
+                  FontAwesomeIcons.youtube,
+                  color: Colors.red,
+                ),
+                title: Text(
+                  "NASA SpaceX Crew Dragon Launch",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                ),
+                onTap: () {
+                  launch("https://www.youtube.com/watch?v=won6Ap9JnVw");
+                },
+              ),
+              Divider(
+                color: Colors.black,
+                thickness: 2,
+              ),
+              ListTile(
+                leading: FaIcon(
+                  FontAwesomeIcons.youtube,
+                  color: Colors.red,
+                ),
+                title: Text(
+                  "Elon Musk's Engineering Masterpiece",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                ),
+                onTap: () {
+                  launch("https://www.youtube.com/watch?v=sX1Y2JMK6g8&t");
+                },
+              ),
+              Divider(
+                color: Colors.black,
+                thickness: 2,
+              ),
+              ListTile(
+                leading: FaIcon(
+                  FontAwesomeIcons.youtube,
+                  color: Colors.red,
+                ),
+                title: Text(
+                  "Inside SpaceX's Crew Dragon Capsule",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                ),
+                onTap: () {
+                  launch("https://www.youtube.com/watch?v=j2C9DYYVEBk");
+                },
+              ),
+              Divider(
+                color: Colors.black,
+                thickness: 2,
+              ),
+              ListTile(
+                leading: FaIcon(
+                  FontAwesomeIcons.youtube,
+                  color: Colors.red,
+                ),
+                title: Text(
+                  "SpaceX just launched humans to space for the first time",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                ),
+                onTap: () {
+                  launch("https://www.youtube.com/watch?v=s4CISUyYoDc");
+                },
+              ),
+              Divider(
+                color: Colors.black,
+                thickness: 2,
+              ),
+              ListTile(
+                leading: FaIcon(
+                  FontAwesomeIcons.personBooth,
+                  color: Colors.black,
+                ),
+                title: Text(
+                  "Want to build career at SpaceX?",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                ),
+                onTap: () async {
+                  DataConnectionStatus status = await checkInternet();
+                  if (status == DataConnectionStatus.connected) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => WebViewContainer(
+                                "https://www.spacex.com/careers/")));
+                  } else {
+                    showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                              title: Text("No Internet"),
+                              content: Text(
+                                  "Check Your Internet Connection.\nIf problem persist contact developer."),
+                            ));
+                  }
+                },
+              ),
+              Divider(
+                color: Colors.black,
+                thickness: 2,
+              ),
+              ListTile(
+                leading: FaIcon(
+                  FontAwesomeIcons.infoCircle,
+                  color: Colors.black,
+                ),
+                title: Text(
+                  "Updates",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                ),
+                onTap: () async {
+                  DataConnectionStatus status = await checkInternet();
+                  if (status == DataConnectionStatus.connected) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => WebViewContainer(
+                                "https://www.spacex.com/updates/")));
+                  } else {
+                    showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                              title: Text("No Internet"),
+                              content: Text(
+                                  "Check Your Internet Connection.\nIf problem persist contact developer."),
+                            ));
+                  }
+                },
+              ),
+              Divider(
+                color: Colors.black,
+                thickness: 2,
+              ),
+              ListTile(
+                leading: FaIcon(
+                  FontAwesomeIcons.store,
+                  color: Colors.black,
+                ),
+                title: Text(
+                  "Store",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                ),
+                onTap: () async {
+                  DataConnectionStatus status = await checkInternet();
+                  if (status == DataConnectionStatus.connected) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                WebViewContainer("https://shop.spacex.com/")));
+                  } else {
+                    showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                              title: Text("No Internet"),
+                              content: Text(
+                                  "Check Your Internet Connection.\nIf problem persist contact developer."),
+                            ));
+                  }
+                },
+              ),
+              Divider(
+                color: Colors.black,
+                thickness: 2,
+              ),
+              ListTile(
+                leading: FaIcon(
+                  FontAwesomeIcons.code,
+                  color: Colors.black,
+                ),
+                title: Text(
+                  "About Developer",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 15, color: Colors.black),
+                ),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => GShetty()));
                 },
               ),
             ],

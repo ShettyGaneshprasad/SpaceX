@@ -9,14 +9,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      color: Colors.black,
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Web Views',
+      title: 'Space X',
       theme: ThemeData(
-          primarySwatch: Colors.blue,
-          fontFamily: "Arial",
-          textTheme: TextTheme(
-            button: TextStyle(color: Colors.white, fontSize: 18.0),
-          )),
+        backgroundColor: Colors.black,
+        primarySwatch: Colors.blue,
+        fontFamily: "Arial",
+        textTheme: TextTheme(
+          button: TextStyle(color: Colors.white, fontSize: 18.0),
+        ),
+      ),
       home: SpaceX(),
     );
   }

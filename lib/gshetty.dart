@@ -34,14 +34,17 @@ class GShetty extends StatelessWidget {
                 color: Colors.white),
             textAlign: TextAlign.center,
           ),
-          Text(
+          SizedBox(
+            height: 15,
+          ),
+          /*   Text(
             "Ph :7900129925\n",
             style: new TextStyle(
                 fontSize: 20.0,
                 fontStyle: FontStyle.normal,
                 color: Colors.grey),
             textAlign: TextAlign.center,
-          ),
+          ),*/
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
@@ -191,7 +194,7 @@ class GShetty extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Card(
+                  /*  Card(
                     color: Colors.black,
                     elevation: 10,
                     margin: EdgeInsets.all(12.0),
@@ -210,7 +213,7 @@ class GShetty extends StatelessWidget {
                         ],
                       ),
                     ),
-                  ),
+                  ),*/
                 ],
               ),
             ],

@@ -15,10 +15,10 @@ All publicly available information about Space X is included in the app.
 
 ## App's Screenshot
 <p>
-  <img src="https://firebasestorage.googleapis.com/v0/b/spacex-d8a56.appspot.com/o/Screenshot_1592657040.png?alt=media&token=a7b766d2-675d-4157-b875-177ae5c9151e" width="290">
-  <img src="https://firebasestorage.googleapis.com/v0/b/spacex-d8a56.appspot.com/o/Screenshot_1592657055.png?alt=media&token=02718def-b3b3-41af-89d6-501c6cd9e189" width="290">
-   <img src="https://firebasestorage.googleapis.com/v0/b/spacex-d8a56.appspot.com/o/WhatsApp%20Image%202020-06-20%20at%209.06.39%20PM%20(1).jpeg?alt=media&token=7444cd23-b671-4b02-9ded-eef193bab480" width="290">
-  <img src="https://firebasestorage.googleapis.com/v0/b/spacex-d8a56.appspot.com/o/WhatsApp%20Image%202020-06-20%20at%209.06.39%20PM.jpeg?alt=media&token=c9b764bd-1efb-496a-bb2a-ab7823f2f4ae" width="290">
+  <img src="https://firebasestorage.googleapis.com/v0/b/spacex-d8a56.appspot.com/o/Screenshot_1592657040.png?alt=media&token=a7b766d2-675d-4157-b875-177ae5c9151e" width="240">
+  <img src="https://firebasestorage.googleapis.com/v0/b/spacex-d8a56.appspot.com/o/Screenshot_1592657055.png?alt=media&token=02718def-b3b3-41af-89d6-501c6cd9e189" width="294">
+   <img src="https://firebasestorage.googleapis.com/v0/b/spacex-d8a56.appspot.com/o/WhatsApp%20Image%202020-06-20%20at%209.06.39%20PM%20(1).jpeg?alt=media&token=7444cd23-b671-4b02-9ded-eef193bab480" width="240">
+  <img src="https://firebasestorage.googleapis.com/v0/b/spacex-d8a56.appspot.com/o/WhatsApp%20Image%202020-06-20%20at%209.06.39%20PM.jpeg?alt=media&token=c9b764bd-1efb-496a-bb2a-ab7823f2f4ae" width="240">
 
 </p>
 

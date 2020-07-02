@@ -1,7 +1,7 @@
 # SpaceX fan app. 
 
 
-In these App i have implemented SpaceX's Crew dragon ISS docking simulator. Crew Dragon is designed to autonomously dock and undock with the International Space Station. However, the crew can take manual control of the spacecraft if necessary. You can experience how in realtime astronaut dock in International Space station.
+In these App i have used SpaceX's Crew dragon ISS docking simulator in my app. Crew Dragon is designed to autonomously dock and undock with the International Space Station. However, the crew can take manual control of the spacecraft if necessary. You can experience how in realtime astronaut dock in International Space station.
 All publicly available information about Space X is included in the app.
 
 
